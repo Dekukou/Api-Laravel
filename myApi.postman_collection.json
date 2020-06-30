@@ -1,0 +1,433 @@
+{
+	"info": {
+		"_postman_id": "a69b3ca1-59d9-498a-a101-f819478453b8",
+		"name": "myApi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\": \"test\",\n\t\"email\": \"test@test.fr\",\n\t\"password\": \"test1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/user",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "auth",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"test@test.fr\",\n\t\"password\": \"test1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/auth",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/user/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"user",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\": \"test2\",\n\t\"email\": \"test2@test.fr\",\n\t\"password\": \"test1234\",\n\t\"pseudo\": \"test2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/user/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"user",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getList",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"perPage\": 2,\n\t\"page\": 2,\n\t\"pseudo\": \"test\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/users",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/user/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"user",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Video",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "source",
+									"type": "file",
+									"src": "/Users/dekukou/Desktop/3-second-video.mp4"
+								},
+								{
+									"key": "name",
+									"value": "Test",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/video",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"video"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "VideoList",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"perPage\": 3,\n    \"duration\": null,\n    \"name\": 38\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/videos",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"videos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "videoByUserId",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user\": \"test\",\n    \"name\": \"Test\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/videos/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"videos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "encodeVideo",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"format\": \"360\",\n    \"file\": \"I am test\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/video/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"video",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateVideo",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"Groot\",\n    \"user\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/video/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"video",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteVideo",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/video/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"video",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Comment",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"body\": \"Ceci est un groot\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/video/2/comments",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"video",
+								"2",
+								"comment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "commentList",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/video/2/comments",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"video",
+								"2",
+								"comments"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNzU1MWVjNDRhZTE4N2E5NTk3NzA2MjQyZDQxYzRlNDJhNmY5Yzg1OTAyNGE2Zjg3MTE0ZGU4ZDc4NDY1YTczOTJkOTRiOTY2NmYyMzMzOTMiLCJpYXQiOjE1OTE4MjkzMDQsIm5iZiI6MTU5MTgyOTMwNCwiZXhwIjoxNjIzMzY1MzA0LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.HnA_PBLQT5XL2F6HlfzkRex1Eu72t1yhZIntURLwgyxezi_SMipThEG8tkaWx14Rjm-fxb8DXyhr7-gm1zucV7Uom4cqHA1324cFc7eovt0VyYELkKPHQg8EWEUwPduH_TFsY3ORNIDkKtd32-DWeLMn2CJK854U4w8spLzjdesXfaCdx4u89AhK6ZqwxpECj8xmBmlhKI_AyOsICrefTRkvI3xtp_Jwz4fRHH8DkDrPK8Vcg2oGdZNtLgl2vAH_I2VVxZDatg1GPCf2WyAoaPhSRw41sU6iy4ll1b63Rf4EFJZTEqEa0hZRuoFQ4UcEuc4loVIJPS8qnagOaSWqMq0n1qj3eNur7eovOPPtt4zBSMeSvyVvebqF_98Wjo4H9ratrwLwZUap5cmgkqgZCF9h3ibeazhd2yH1dQ-ZCYtJz-wHATYZF_fkiCdyaeKiWoghNol9Sh2dZk-Q4XfH8Th-gdzR5nkRLLK_Dzo_LhLy6ViBXBm4AExLhbVJSYMVKH2P4U7y6V9xcHjnlUKQyWEXvojnn0myXHd-Rqdbronwx7bUbftKn1xOmuQzkYv8vvB0j5u-J04wLtoNsRisQhPQnn7XZfdWU8v059HmrSsDewbCPnu75ttUs3R76cWGPlhT5A63vMlFQX0LddRAAvsK5VxwDQdQtwbR1Q79lJA",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "176c2f82-6cad-4a55-ac19-2e641190cb97",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "0360317b-e504-4437-a448-ed1f3870c9b4",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "d343ff5a-5da7-41fb-97e3-6574f53cc3de",
+			"key": "url",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "2d4774e4-bb3c-457d-bb8d-80b954bdde8c",
+			"key": "token",
+			"value": "",
+			"type": "string",
+			"disabled": true
+		}
+	],
+	"protocolProfileBehavior": {}
+}
