@@ -61,10 +61,11 @@ class UserController extends Controller
             ->first();
 
         if (isset($user)) {
-            $result['token'] = $user->createToken('MyApp')->accessToken;
+            $token = $user->createToken('MyApp')->accessToken;
             return response()->json([
                 "message" => "Ok",
-                "data" => $result,
+                "user" => $user,
+                "token" => $token,
             ], 201);
         }
         return response()->json([
