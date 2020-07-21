@@ -25,11 +25,11 @@ Route::get('videos/{user_id}', 'VideoController@getVideosByUserId');
 
 Route::group(['middleware' => 'auth:api'], function() {
 	Route::delete('user/{id}', 'UserController@deleteUser');
-	Route::put('user/{id}', 'UserController@updateUser');
+	Route::post('user/{id}', 'UserController@updateUser');
 	Route::get('user/{id}', 'UserController@getUser');
 
 	Route::post('video', 'VideoController@create');
-	Route::put('video/{id}', 'VideoController@updateVideo');
+	Route::post('video/{id}', 'VideoController@updateVideo');
 	Route::patch('video/{id}', 'VideoController@encodeVideo');
 	Route::delete('video/{id}', 'VideoController@deleteVideo');
 
