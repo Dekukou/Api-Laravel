@@ -272,10 +272,7 @@ class VideoController extends Controller
         $user = Auth::user();
         $video = Video::where('id', $id)->first();
         $extension = [];
-        preg_match('/(?=\.).*/', $video->source, $extension);
-        $name = $video->name;
         $path = public_path().'/uploads/';
-        $user_id = $video->user_id;
 
         if (!isset($video)) {
             return response()->json([
@@ -290,6 +287,9 @@ class VideoController extends Controller
                 $user_id = $request->get('user');
             } 
             if ($request->get('name') !== null) {
+                preg_match('/(?=\.).*/', $video->source, $extension);
+                $name = $video->name;
+                $user_id = $video->user_id;
                 if (is_file($path . $request->get('name') . $extension[0]))
                     $name = date('Y_m_d-H-i-s') . $request->get('name');
                 else
